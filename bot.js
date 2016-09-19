@@ -63,7 +63,7 @@ var botje = botje || (function(){
               max = messageParts[2];
             }
 
-            sendMessage(`Rolling between ${min} and ${max}, result: ${Math.random() * (min + max) - min}`)
+            sendMessage(`Rolling between ${min} and ${max}, result: ${Math.round(Math.random() * (min + max) - min)}`)
           } else if (messageParts.length === 1 && (messageParts[0] === "/y" || messageParts[0] === "/yes")) {
             if (vote.voted.indexOf(author) === -1) {
               vote.votesYes += 1;
