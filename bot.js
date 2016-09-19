@@ -55,6 +55,15 @@ var botje = botje || (function(){
                 var reason = message.substr(message.indexOf(messageParts[1]) + messageParts[1].length + 1);
                 sendMessage("Voteadd started for user: " + messageParts[1] + ", type /y or /n to vote! Reason for vote: " + reason);
               }
+          } else if (messageParts[0] === "/roll") {
+            let min = 0;
+            let max = 10;
+            if (messageParts.length > 2) {
+              min = messageParts[1];
+              max = messageParts[2];
+            }
+
+            sendMessage(`Rolling between ${min} and ${max}, result: ${Math.random() * (min + max) - min}`)
           } else if (messageParts.length === 1 && (messageParts[0] === "/y" || messageParts[0] === "/yes")) {
             if (vote.voted.indexOf(author) === -1) {
               vote.votesYes += 1;
